@@ -33,28 +33,37 @@ Docker — For containerized setup (optional)
 ## Installation
 
 1. Clone the repository
-git clone https://github.com/hahmadipoor/iot-xray.git
-cd iot-xray
 
+```git clone https://github.com/hahmadipoor/iot-xray.git
+   cd iot-xray
+```
 
 2. Install dependencies
-npm install
+
+```npm install
+```
 
 3. Configure environment variables
+
 Create a .env file in the root directory:
-RABBITMQ_URL=amqp://localhost:5672
+
+```RABBITMQ_URL=amqp://localhost:5672
 RABBITMQ_QUEUE=xray_queue
 MONGODB_URI=mongodb://localhost:27017/xray_signals
 PORT=3000
-
+```
 
 # Running the Project
 1. Start RabbitMQ & MongoDB (Docker)
-docker run -d --hostname rabbit --name rabbitmq -p 5672:5672 rabbitmq:3-management
-docker run -d --name mongodb -p 27017:27017 mongo
+
+```docker run -d --hostname rabbit --name rabbitmq -p 5672:5672 rabbitmq:3-management
+   docker run -d --name mongodb -p 27017:27017 mongo
+```
 
 2. Start the backend
-npm run start:dev
+
+```npm run start:dev
+```
 
 # Testing the Flow
 
@@ -64,16 +73,17 @@ npm run start:dev
 
 3. Use the IoT Producer App to send a test message to the queue:
 
-node producer.js
+```node producer.js
+```
 
 4. The backend will consume the message and save it in MongoDB.
 
 5. Verify the data:
 
-mongo
+```mongo
 use xray_signals
 db.signals.find()
-
+```
 
 
 
