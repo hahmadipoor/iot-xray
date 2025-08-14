@@ -41,6 +41,7 @@ Docker — For containerized setup (optional)
 2. Install dependencies
 
 ```npm install
+
 ```
 
 3. Configure environment variables
@@ -57,7 +58,7 @@ PORT=3000
 1. Start RabbitMQ & MongoDB (Docker)
 
 ```docker run -d --hostname rabbit --name rabbitmq -p 5672:5672 rabbitmq:3-management
-   docker run -d --name mongodb -p 27017:27017 mongo
+docker run -d --name mongodb -p 27017:27017 mongo
 ```
 
 2. Start the backend
@@ -74,6 +75,7 @@ PORT=3000
 3. Use the IoT Producer App to send a test message to the queue:
 
 ```node producer.js
+
 ```
 
 4. The backend will consume the message and save it in MongoDB.
